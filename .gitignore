@@ -50,6 +50,7 @@ local_settings.py
 .project
 
 *.db3
+*sqlite3
 
 #LocalFiles
 pylintrc
