@@ -19,7 +19,7 @@ def fib(n):
 @app.route('/fib-num/', methods=['GET'])
 def fib_num():
     if request.method == 'GET':
-        return str(fib(int(request.args.get('num', 0))))
+        return str(fib(int(request.args.get('fib_index', 0))))
     else:
         return 'Incorrect request type {}'.format(request.method)
 

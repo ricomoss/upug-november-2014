@@ -1,8 +1,11 @@
 from django.views.generic import View
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
+
+from example_app.forms import FibNumForm
+from example_app.models import FibHistory
 
 
-class FibNum(View):
+class FibNumView(View):
     @staticmethod
     def fib(n):
         if n < 2:
@@ -18,4 +21,14 @@ class FibNum(View):
         return b
 
     def get(self, request):
-        return HttpResponse(self.fib(int(request.GET.get('num', 0))))
+        form = FibNumForm(request.GET)
+        if form.is_valid():
+            fib_index = form.cleaned_data.get('fib_index', 0)
+            try:
+                fib_history = FibHistory.objects.get(fib_index=fib_index)
+                fib_num = fib_history.fib_num
+            except FibHistory.DoesNotExist:
+                fib_num = self.fib(fib_index)
+                FibHistory.objects.create(fib_index=fib_index, fib_num=fib_num)
+            return HttpResponse(fib_num)
+        return Http404()

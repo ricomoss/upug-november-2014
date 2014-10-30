@@ -4,5 +4,5 @@ from example_app import views
 
 
 urlpatterns = patterns('',
-    url(r'^$', views.FibNum.as_view(), name='fib_num')
+    url(r'^$', views.FibNumView.as_view(), name='fib_num')
 )
