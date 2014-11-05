@@ -1,8 +1,8 @@
 from django.test import TestCase
 from fixtureless import Factory
 
-from views import FibNumView
-from models import FibHistory
+from example_app.views import FibNumView
+from example_app.models import FibHistory
 
 
 class SuperSnazzyViewTests(TestCase):
@@ -25,4 +25,4 @@ class SuperSnazzyModelTests(TestCase):
             'fib_num': '1000',
         }
         fib_history = self.factory.create(FibHistory, initial)
-        self.assertEqual(fib_history.sum_fib_nums(), 1000)
+        self.assertEqual(fib_history.do_something_pointless(), 0)
