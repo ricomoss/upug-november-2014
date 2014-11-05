@@ -8,12 +8,14 @@ from example_app.models import FibHistory
 class FibNumView(View):
     @staticmethod
     def fib(n):
-        if n < 2:
+        if n < 1:
             return 0
+        if n < 3:
+            return 1
         a = 0
         b = 1
         i = 0
-        while i < n:
+        while i < n - 1:
             c = a + b
             a = b
             b = c
