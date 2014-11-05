@@ -26,3 +26,10 @@ class SuperSnazzyModelTests(TestCase):
         }
         fib_history = self.factory.create(FibHistory, initial)
         self.assertEqual(fib_history.do_something_pointless(), 0)
+
+        initial = {
+            'fib_index': 100,
+            'fib_num': 10,
+        }
+        fib_history = self.factory.create(FibHistory, initial)
+        self.assertEqual(fib_history.do_something_pointless(), 1000)
