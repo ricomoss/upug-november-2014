@@ -32,16 +32,16 @@ You should always have a virtual environment for anything Python related - it's 
 
 There are many options available for setting up a virtual environment.  One is provided below.
 
-- Ensure you have the necessary libraries.
+Ensure you have the necessary libraries.
 
     $ pip install virtualenv
     $ pip install virtualenvwrapper
     
-- Source the wrapper in your local rc file.  (*~/.bashrc*, *~/.zshrc*, etc)
+Source the wrapper in your local rc file.  (*~/.bashrc*, *~/.zshrc*, etc)
 
     $ source /usr/local/bin/virtualenvwrapper.sh
     
-- Create your virtual environment  (for Python 2.7.x and Python 3.x, respectively):
+Create your virtual environment  (for Python 2.7.x and Python 3.x, respectively):
 
     $ mkvirtualenv upug_example
     $ mkvirtualenv upud_example -p /usr/bin/python3
